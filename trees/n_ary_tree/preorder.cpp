@@ -1,5 +1,4 @@
 #include <vector>
-
 using std::vector;
 
 // Definition for a Node.
@@ -20,25 +19,20 @@ public:
     }
 };
 
-
 class Solution {
 public:
-    vector<int> postorder(Node* root) {
+    vector<int> preorder(Node* root) {
         vector<int> res {};
         traverse(root, res);
         return res;
     }
 
     void traverse(Node* root, vector<int>& res) {
-        if (root != nullptr) {
+        if (root) {
+            res.push_back(root->val);
             for (auto child : root->children) {
                 traverse(child, res);
             }
-            res.push_back(root->val);
         }
     }
 };
-
-int main() {
-    return 0;
-}
